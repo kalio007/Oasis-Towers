@@ -1,7 +1,6 @@
 import supabase from "../config/supabaseClient"
 import { useEffect, useState } from "react";
-
-// console.log(supabase)
+import EstateCard from "../components/estateCard";
 
 const Home = () => {
   const [fetchError, setFetchError] = useState(null);
@@ -18,7 +17,6 @@ const Home = () => {
         setEstates(null);
       }
       if (data) {
-        console.log(data);
         setEstates(data);
         setFetchError(null);
       }
@@ -29,12 +27,15 @@ const Home = () => {
   return (
     <div className="page home">
       {fetchError && (<p>{fetchError}</p>)}
-      {estates &&
-        (<div className="">
-          {estates.map(estate => (
-            <p>{estate.title}</p>
-          ))}
-        </div>)}
+      {estates && (
+        <div className="smoothies">
+          <div className="smoothie-grid">
+            {estates.map(estate => (
+              <p><EstateCard key={estate.id} estates={estate} /></p>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

@@ -42,6 +42,24 @@ const Create = () => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
+        <label htmlFor="Description">Description:</label>
+        <textarea
+          id="description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+
+        <label htmlFor="location">Location:</label>
+        <input
+          type="text"
+          id="location"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+        />
+
+        <button>Enlist you Real Estate</button>
+
+        {formError && <p className="error">{formError}</p>}
       </form>
     </div>
   )

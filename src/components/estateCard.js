@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function EstateCard({ estates }) {
     return (
         <div className="smoothie-card">
@@ -7,6 +9,9 @@ export default function EstateCard({ estates }) {
             <p>{estates.description}</p>
             <p>{estates.rent}</p>
             <div className="rating"></div>
+            <Link to={"/" + estates.id}>
+                <i className="material-icons">edit</i>
+            </Link>
         </div>
     )
 }

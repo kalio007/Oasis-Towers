@@ -25,8 +25,8 @@ const Update = () => {
     }
     if (data) {
       setFormError(null)
-      navigate('/')
     }
+    navigate('/')
   }
   useEffect(() => {
     const fetchRecords = async () => {

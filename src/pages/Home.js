@@ -17,6 +17,7 @@ const Home = () => {
       let { data, error } = await supabase
         .from('OasisTowers')
         .select('*')
+        .order(orderBy, { ascending: false })
 
       if (error) {
         setFetchError('could not fetch')
@@ -28,7 +29,7 @@ const Home = () => {
       }
     }
     fetchEstate()
-  }, []);
+  }, [orderBy]);
 
   return (
     <div className="page home">
@@ -40,6 +41,7 @@ const Home = () => {
             <button onClick={() => setOrderBy('created_at')}>Time Created</button>
             <button onClick={() => setOrderBy('title')}>Title</button>
             <button onClick={() => setOrderBy('location')}>Location</button>
+            {orderBy}
           </div>
           <div className="smoothie-grid">
             {estates.map(estate => (
